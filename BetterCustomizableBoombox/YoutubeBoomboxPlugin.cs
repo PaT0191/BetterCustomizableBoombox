@@ -1,22 +1,23 @@
 ﻿using BepInEx;
+using GameNetcodeStuff;
 using HarmonyLib;
-using YoutubeDLSharp;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using UnityEngine;
-using GameNetcodeStuff;
-using Unity.Netcode;
-using System.Reflection.Emit;
-using UnityEngine.InputSystem;
-using BepInEx.Configuration;
-using Newtonsoft.Json;
-using System.Reflection;
-using YoutubeBoombox.Providers;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
+using Unity.Netcode;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using YoutubeBoombox.Providers;
+using YoutubeDLSharp;
+using static BetterYoutubeBoombox.YoutubeBoomboxConfig;
+using static UnityEngine.InputSystem.InputAction;
 
-namespace YoutubeBoombox
+namespace BetterYoutubeBoombox
 {
     public class InfoCache : IProgress<string>
     {
@@ -51,70 +52,53 @@ namespace YoutubeBoombox
 
                 PlaylistCache[Id].Add(json.id);
 
-            } catch { }
+            }
+            catch { }
         }
     }
 
-    [BepInPlugin("marino1509.CustomizableBoombox", "Customizable Boombox", "1.0.0")]
-    [BepInDependency("LC_API")]
-    public class YoutubeBoombox : BaseUnityPlugin
+
+    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInDependency("com.rune580.LethalCompanyInputUtils", BepInDependency.DependencyFlags.HardDependency)]
+    public class YoutubeBoomboxPlugin : BaseUnityPlugin
     {
+        public static YoutubeBoomboxPlugin Instance { get; private set; }
+
+        public static new YoutubeBoomboxConfig Config { get; private set; }
+
         private static Harmony Harmony { get; set; }
 
         internal static string DirectoryPath { get; private set; }
 
         internal static string DownloadsPath { get; private set; }
 
-        internal static YoutubeBoombox Singleton { get; private set; }
-
-        public static YoutubeDL YoutubeDL { get; private set; } = new YoutubeDL();
-
-        #region Config
-        internal static ConfigEntry<int> MaxCachedDownloads { get; private set; }
-
-        internal static ConfigEntry<bool> DeleteDownloadsOnRestart { get; private set; }
-
-        internal static ConfigEntry<float> MaxSongDuration { get; private set; }
-
-        internal static ConfigEntry<bool> EnableDebugLogs { get; private set; }
-
-        internal static ConfigEntry<Key> CustomBoomboxButton { get; private set; }
-        #endregion
+        public YoutubeDL YoutubeDL { get; private set; } = new YoutubeDL();
 
         internal static List<string> PathsThisSession { get; private set; } = new List<string>();
 
         internal static List<Provider> Providers { get; } = new List<Provider>();
 
+        static PlayerControllerB PlayerControllerBInstance;
+
         public static void LogInfo(object data)
         {
-            Singleton.Logger.LogInfo(data);
+            Instance.Logger.LogInfo(data);
         }
 
         public static void LogError(object data)
         {
-            Singleton.Logger.LogError(data);
+            Instance.Logger.LogError(data);
         }
 
-        public static void DebugLog(object data, bool shouldLog = true)
+        public static void DebugLog(object data)
         {
-            //if (shouldLog)
-            if (true)
-            {
-                Singleton.Logger.LogInfo(data);
-            }
+            Instance.Logger.LogInfo(data);
         }
 
         async void Awake()
         {
-            Singleton = this;
-
-            MaxCachedDownloads = Config.Bind(new ConfigDefinition("General", "Max Cached Downloads"), 10, new ConfigDescription("The maximum number of downloaded songs that can be saved before deleting.", new ConfigNumberClamper(1, 100)));
-            DeleteDownloadsOnRestart = Config.Bind("General", "Delete Downloads On Restart", true, "Whether or not to delete downloads when your game starts again.");
-            MaxSongDuration = Config.Bind("General", "Max Song Duration", 600f, "Maximum song duration in seconds. Any video longer than this will not be downloaded.");
-
-            EnableDebugLogs = Config.Bind("Debugging", "Enable Debug Logs", false, "Whether or not to enable debug logs.");
-
-            CustomBoomboxButton = Config.Bind("Keybinds", "Open Menu Key", Key.B, "The button you need to press to open the youtube boombox gui.");
+            Instance = this;
+            Config = new(base.Config);
 
             string oldDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Youtube-Boombox");
 
@@ -123,11 +107,14 @@ namespace YoutubeBoombox
                 Directory.Delete(oldDirectoryPath, true);
             }
 
-            DirectoryPath = Path.Combine(Paths.PluginPath, "marino1509.CustomizableBoombox", "data");
+            DirectoryPath = Path.Combine(Paths.PluginPath, PluginInfo.PLUGIN_NAME, "data");
             DownloadsPath = Path.Combine(DirectoryPath, "Downloads");
 
-            if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
-            if (!Directory.Exists(DownloadsPath)) Directory.CreateDirectory(DownloadsPath);
+            if (!Directory.Exists(DirectoryPath)) 
+                Directory.CreateDirectory(DirectoryPath);
+
+            if (!Directory.Exists(DownloadsPath)) 
+                Directory.CreateDirectory(DownloadsPath);
 
             if (DeleteDownloadsOnRestart.Value)
             {
@@ -137,77 +124,27 @@ namespace YoutubeBoombox
                 }
             }
 
-            if (!Directory.GetFiles(DirectoryPath).Any(file => file.Contains("yt-dl"))) await Utils.DownloadYtDlp(DirectoryPath);
-            if (!Directory.GetFiles(DirectoryPath).Any(file => file.Contains("ffmpeg"))) await Utils.DownloadFFmpeg(DirectoryPath);
+            if (!Directory.GetFiles(DirectoryPath).Any(file => file.Contains("yt-dl")))
+                await Utils.DownloadYtDlp(DirectoryPath);
+
+            if (!Directory.GetFiles(DirectoryPath).Any(file => file.Contains("ffmpeg")))
+                await Utils.DownloadFFmpeg(DirectoryPath);
 
             YoutubeDL.YoutubeDLPath = Directory.GetFiles(DirectoryPath).First(file => file.Contains("yt-dl"));
             YoutubeDL.FFmpegPath = Directory.GetFiles(DirectoryPath).First(file => file.Contains("ffmpeg"));
 
             YoutubeDL.OutputFolder = DownloadsPath;
-
             YoutubeDL.OutputFileTemplate = "%(id)s.%(ext)s";
 
-            Harmony = new Harmony($"marino1509.CustomizableBoombox-{DateTime.Now.Ticks}");
-
+            Harmony = new Harmony($"{PluginInfo.PLUGIN_NAME}_{PluginInfo.PLUGIN_VERSION}");
+            Harmony.PatchAll(typeof(Patches));
             Harmony.PatchAll();
 
             SetupNetworking();
 
-            LC_API.ClientAPI.CommandHandler.RegisterCommand("bbv", new List<string>() { "boomboxvolume" }, (string[] args) =>
-            {
-                if (args.Length > 0 && float.TryParse(args[0], out float volume))
-                {
-                    PlayerControllerB localController = StartOfRound.Instance.localPlayerController;
-                    if (localController.currentlyHeldObjectServer is BoomboxItem boombox)
-                    {
-                        boombox.boomboxAudio.volume = volume / 100;
-                    }
-                    else
-                    {
-                        BoomboxItem closestBoombox = null;
-                        float distanceSqr = float.MaxValue;
-
-                        foreach (BoomboxItem boomboxItem in FindObjectsOfType<BoomboxItem>())
-                        {
-                            float dist = (boomboxItem.transform.position - localController.transform.position).sqrMagnitude;
-                            if (dist < distanceSqr)
-                            {
-                                closestBoombox = boomboxItem;
-                                distanceSqr = dist;
-                            }
-                        }
-
-                        if (distanceSqr <= 255)
-                        {
-                            closestBoombox.boomboxAudio.volume = volume / 100;
-                        }
-                    }
-                }
-            });
-
-            //LC_API.ClientAPI.CommandHandler.RegisterCommand("spawnbox", (string[] args) =>
-            //{
-            //    NetworkManager manager = FindObjectOfType<NetworkManager>();
-            //    if (manager != null)
-            //    {
-            //        foreach (NetworkPrefab prefab in manager.NetworkConfig.Prefabs.Prefabs)
-            //        {
-            //            if (prefab.Prefab.TryGetComponent(out BoomboxItem boombox))
-            //            {
-            //                BoomboxItem spawnedBox = Instantiate(boombox, StartOfRound.Instance.localPlayerController.transform.position, default);
-            //                spawnedBox.insertedBattery.charge = 0.2f;
-            //                spawnedBox.GetComponent<NetworkObject>().Spawn();
-
-            //                spawnedBox.SyncBatteryServerRpc(20);
-
-            //                break;
-            //            }
-            //        }
-            //    }
-            //});
-
             var method = new StackTrace().GetFrame(0).GetMethod();
             var assembly = method.ReflectedType.Assembly;
+
             foreach (Type t in AccessTools.GetTypesFromAssembly(assembly))
             {
                 if (t.IsSubclassOf(typeof(Provider)))
@@ -234,7 +171,7 @@ namespace YoutubeBoombox
             }
         }
 
-        [HarmonyPatch(typeof(GameNetworkManager), nameof(GameNetworkManager.Start))]
+        [HarmonyPatch(typeof(GameNetworkManager), "Start")]
         class GameNetworkManagerPatch
         {
             public static void Postfix(GameNetworkManager __instance)
@@ -251,7 +188,7 @@ namespace YoutubeBoombox
             }
         }
 
-        [HarmonyPatch(typeof(GrabbableObject), nameof(GrabbableObject.UseItemOnClient))]
+        [HarmonyPatch(typeof(GrabbableObject), "UseItemOnClient")]
         class PreventRpc
         {
             public static bool IsBoomboxAndGUIShowing(GrabbableObject obj)
@@ -281,13 +218,14 @@ namespace YoutubeBoombox
             }
         }
 
-        [HarmonyPatch(typeof(BoomboxItem), nameof(BoomboxItem.StartMusic))]
+        [HarmonyPatch(typeof(BoomboxItem))]
         public class BoomboxPatch
         {
             internal static bool ShowingGUI { get; set; } = false;
             internal static YoutubeBoomboxGUI ShownGUI { get; set; }
             internal static BoomboxItem CurrentBoombox { get; set; }
 
+            [HarmonyPatch("StartMusic")]
             public static bool Prefix(BoomboxItem __instance, bool startMusic, bool pitchDown)
             {
                 if (__instance.TryGetComponent(out BoomboxController controller))
@@ -295,16 +233,12 @@ namespace YoutubeBoombox
                     DebugLog($"Start music {startMusic}");
                     controller.ToggleBoombox(startMusic, pitchDown);
                     return false;
-
                 }
 
                 return true;
             }
-        }
 
-        [HarmonyPatch(typeof(BoomboxItem), nameof(BoomboxItem.PocketItem))]
-        internal class BoomboxItem_PocketItem
-        {
+            [HarmonyPatch("PocketItem")]
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var patchedInstructions = instructions.ToList();
@@ -324,6 +258,74 @@ namespace YoutubeBoombox
                 }
                 return patchedInstructions;
             }
+
+            [HarmonyPatch("Start")]
+            public static void Prefix(BoomboxItem __instance)
+            {
+                DebugLog("A");
+
+                if (!__instance.gameObject.GetComponent<BoomboxController>())
+                {
+
+                    __instance.gameObject.AddComponent<BoomboxController>();
+                    __instance.itemProperties.syncInteractLRFunction = false;
+                }
+
+                DebugLog(__instance.TryGetComponent(out BoomboxController b));
+            }
+        }
+
+
+        [HarmonyPatch(typeof(GrabbableObject))]
+        internal class GrabbableObjectPatch
+        {
+            [HarmonyPatch("EquipItem")]
+            public static void Postfix(GrabbableObject __instance)
+            {
+                if (__instance.GetType() == typeof(BoomboxItem))
+                {
+                    List<string> newToolTips = new (__instance.itemProperties.toolTips);
+                    if (!newToolTips.Any(x => x.Contains("Open YT GUI")))
+                    {
+                        newToolTips.Add($"Open YT GUI: [{InputActionInstance.OpenBoomboxMenu.bindings[0].ToDisplayString()}]");
+                        __instance.itemProperties.toolTips = newToolTips.ToArray();
+
+                        __instance.SetControlTipsForItem();
+                    }
+                }
+            }
+        }
+
+
+        [HarmonyPatch(typeof(PlayerControllerB))]
+        public class PlayerControllerBPatch
+        {
+            [HarmonyPatch("ConnectClientToPlayerObject")]
+            public static void Prefix(PlayerControllerB __instance)
+            {
+                PlayerControllerBInstance = __instance;
+                InputActionInstance.OpenBoomboxMenu.performed += OpenBoomboxMenu;
+            }
+
+            [HarmonyPatch("OnDestroy")]
+            public static void Postfix(PlayerControllerB __instance)
+            {
+                PlayerControllerBInstance = __instance;
+                InputActionInstance.OpenBoomboxMenu.performed -= OpenBoomboxMenu;
+            }
+        }
+
+        private static void OpenBoomboxMenu(InputAction.CallbackContext callbackContext)
+        {
+            DebugLog($"{callbackContext.performed} || {PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController} || {PlayerControllerBInstance.isPlayerDead}");
+
+            if (!callbackContext.performed
+                || PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController
+                || PlayerControllerBInstance.isPlayerDead) 
+                return;
+
+            DebugLog("Opening boombox menu");
+            BoomboxController.Instance.OpenMenu();
         }
     }
 }

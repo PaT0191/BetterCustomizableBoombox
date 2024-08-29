@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.8.34330.188
+VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizableBoombox", "CustomizableBoombox\CustomizableBoombox.csproj", "{50A0E49B-1441-46DA-9FBF-11BD9A8DF0FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizableBoombox", "BetterCustomizableBoombox\CustomizableBoombox.csproj", "{50A0E49B-1441-46DA-9FBF-11BD9A8DF0FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BD61A0D-0319-4148-84AA-B39CABBF6C25}
 	EndGlobalSection
 EndGlobal

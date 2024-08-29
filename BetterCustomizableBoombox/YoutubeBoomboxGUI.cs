@@ -1,13 +1,6 @@
-﻿using GameNetcodeStuff;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
-namespace YoutubeBoombox
+namespace BetterYoutubeBoombox
 {
     internal class YoutubeBoomboxGUI : MonoBehaviour
     {
