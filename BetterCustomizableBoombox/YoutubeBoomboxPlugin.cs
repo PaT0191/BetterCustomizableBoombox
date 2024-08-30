@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using GameNetcodeStuff;
 using HarmonyLib;
+using LethalCompanyInputUtils.Components;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,6 @@ using UnityEngine.InputSystem;
 using YoutubeBoombox.Providers;
 using YoutubeDLSharp;
 using static BetterYoutubeBoombox.YoutubeBoomboxConfig;
-using static UnityEngine.InputSystem.InputAction;
 
 namespace BetterYoutubeBoombox
 {
@@ -275,6 +275,19 @@ namespace BetterYoutubeBoombox
             }
         }
 
+        [HarmonyPatch(typeof(RemapContainerController))]
+        public class RemapContainerControllerPatch
+        {
+            [HarmonyPatch("SaveOverrides")]
+            public static void Prefix(RemapContainerController __instance)
+            {
+                if (StartOfRound.Instance != null && BoomboxController.Instance != null && StartOfRound.Instance.localPlayerController.currentlyHeldObjectServer == BoomboxController.Instance.Boombox)
+                {
+                    Instance.UpdateBoomBoxTips(BoomboxController.Instance.Boombox);
+                }
+            }
+        }
+
 
         [HarmonyPatch(typeof(GrabbableObject))]
         internal class GrabbableObjectPatch
@@ -284,16 +297,28 @@ namespace BetterYoutubeBoombox
             {
                 if (__instance.GetType() == typeof(BoomboxItem))
                 {
-                    List<string> newToolTips = new (__instance.itemProperties.toolTips);
-                    if (!newToolTips.Any(x => x.Contains("Open YT GUI")))
-                    {
-                        newToolTips.Add($"Open YT GUI: [{InputActionInstance.OpenBoomboxMenu.bindings[0].ToDisplayString()}]");
-                        __instance.itemProperties.toolTips = newToolTips.ToArray();
-
-                        __instance.SetControlTipsForItem();
-                    }
+                    BoomboxItem boombox = (BoomboxItem) __instance;
+                    Instance.UpdateBoomBoxTips(boombox);
                 }
             }
+        }
+
+        void UpdateBoomBoxTips(BoomboxItem boombox)
+        {
+            List<string> newToolTips = new(boombox.itemProperties.toolTips);
+            int index = newToolTips.FindIndex(x => x.Contains("Open YT GUI"));
+            if (index == -1)
+            {
+                newToolTips.Add($"Open YT GUI: [{InputActionInstance.OpenBoomboxMenu.bindings[0].ToDisplayString()}]");
+            }
+            else
+            {
+                newToolTips[index] = $"Open YT GUI: [{InputActionInstance.OpenBoomboxMenu.bindings[0].ToDisplayString()}]";
+            }
+
+            boombox.itemProperties.toolTips = newToolTips.ToArray();
+
+            boombox.SetControlTipsForItem();
         }
 
 
@@ -317,15 +342,18 @@ namespace BetterYoutubeBoombox
 
         private static void OpenBoomboxMenu(InputAction.CallbackContext callbackContext)
         {
-            DebugLog($"{callbackContext.performed} || {PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController} || {PlayerControllerBInstance.isPlayerDead}");
+            if (StartOfRound.Instance != null && BoomboxController.Instance != null && StartOfRound.Instance.localPlayerController.currentlyHeldObjectServer == BoomboxController.Instance.Boombox)
+            {
+                DebugLog($"{callbackContext.performed} || {PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController} || {PlayerControllerBInstance.isPlayerDead}");
 
-            if (!callbackContext.performed
-                || PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController
-                || PlayerControllerBInstance.isPlayerDead) 
-                return;
+                if (!callbackContext.performed
+                    || PlayerControllerBInstance != GameNetworkManager.Instance.localPlayerController
+                    || PlayerControllerBInstance.isPlayerDead)
+                    return;
 
-            DebugLog("Opening boombox menu");
-            BoomboxController.Instance.OpenMenu();
+                DebugLog("Opening boombox menu");
+                BoomboxController.Instance.OpenMenu();
+            }
         }
     }
 }

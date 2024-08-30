@@ -53,7 +53,7 @@ namespace BetterYoutubeBoombox
 
         public void OpenMenu()
         {
-            if (StartOfRound.Instance != null && StartOfRound.Instance.localPlayerController.currentlyHeldObjectServer == Boombox)
+            if (StartOfRound.Instance != null && BoomboxController.Instance != null && StartOfRound.Instance.localPlayerController.currentlyHeldObjectServer == BoomboxController.Instance.Boombox)
             {
                 DebugLog($"Boombox button pressed!");
 
@@ -63,6 +63,31 @@ namespace BetterYoutubeBoombox
             }
             else
                 DebugLog($"Boombox button cancelled!");
+        }
+
+        // Doesn't really destroy the GUI, the GUI destroys itself, just gotta set it to null.
+        public void DestroyGUI()
+        {
+            Instance.GUI = null;
+
+            EnableControls();
+        }
+
+        public bool IsGUIShowing()
+        {
+            return GUI != null;
+        }
+
+        private void DisableControls()
+        {
+            StartOfRound.Instance.localPlayerController.isTypingChat = true;
+            StartOfRound.Instance.localPlayerController.playerActions.Disable();
+        }
+
+        private void EnableControls()
+        {
+            StartOfRound.Instance.localPlayerController.isTypingChat = false;
+            StartOfRound.Instance.localPlayerController.playerActions.Enable();
         }
 
         public void ToggleBoombox(bool startMusic, bool pitchDown)
@@ -78,18 +103,6 @@ namespace BetterYoutubeBoombox
 
             StopMusicServerRpc(startMusic, pitchDown);
 
-        }
-
-        private void DisableControls()
-        {
-            StartOfRound.Instance.localPlayerController.isTypingChat = true;
-            StartOfRound.Instance.localPlayerController.playerActions.Disable();
-        }
-
-        private void EnableControls()
-        {
-            StartOfRound.Instance.localPlayerController.isTypingChat = false;
-            StartOfRound.Instance.localPlayerController.playerActions.Enable();
         }
 
         [ServerRpc(RequireOwnership = false)]
@@ -238,19 +251,6 @@ namespace BetterYoutubeBoombox
             ParsedUri parsedUri = Providers.First(p => p.Hosts.Contains(uri.Host)).ParseUri(uri);
 
             Download(parsedUri);
-        }
-
-        // Doesn't really destroy the GUI, the GUI destroys itself, just gotta set it to null.
-        public void DestroyGUI()
-        {
-            GUI = null;
-
-            EnableControls();
-        }
-
-        public bool IsGUIShowing()
-        {
-            return GUI != null;
         }
 
         public IEnumerator LoadSongCoroutine(string path)

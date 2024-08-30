@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BepInEx;
+using UnityEngine;
 
 namespace BetterYoutubeBoombox
 {
@@ -14,9 +15,9 @@ namespace BetterYoutubeBoombox
         void Awake()
         {
             menuWidth = Screen.width / 3;
-            menuHeight = Screen.width / 4;
+            menuHeight = Screen.width / 10;
             menuX = (Screen.width / 2) - (menuWidth / 2);
-            menuY = (Screen.height / 2) - (menuHeight / 2);
+            menuY = (Screen.height / 2) - ((Screen.width / 4) / 2);
         }
 
         public void OnGUI()
@@ -25,27 +26,34 @@ namespace BetterYoutubeBoombox
             UnityEngine.Cursor.lockState = CursorLockMode.Confined;
 
             GUI.Box(new Rect(menuX, menuY, menuWidth, menuHeight), "Youtube Boombox");
-            url = GUI.TextField(new Rect(menuX + 25, menuY + 20, menuWidth - 125, 50), url);
+            url = GUI.TextField(new Rect(menuX + 25, menuY + 25, menuWidth - 125, 50), url);
 
-            if (GUI.Button(new Rect(menuX + menuWidth - 75, menuY + 20, 50, 50), "Paste")) 
+            if (GUI.Button(new Rect(menuX + menuWidth - 75, menuY + 25, 50, 50), "Paste")) 
             {
                 url = GUIUtility.systemCopyBuffer;
             }
-            if (GUI.Button(new Rect(menuX + 25, menuY + 50 + 50, menuWidth - 50, 50), "Play"))
+            /*if (GUI.Button(new Rect(menuX + menuWidth - 75, menuY + 20, 50, 50), "Clear"))
             {
-                if (gameObject.TryGetComponent(out BoomboxController controller))
+                url = "";
+            }*/
+            if (GUI.Button(new Rect(menuX + 25, menuY + 55 + 50, menuWidth - 50, 50), "Play"))
+            {
+                if (!url.IsNullOrWhiteSpace())
                 {
-                    controller.DestroyGUI();
-                    controller.PlaySong(url);
+                    if (gameObject.TryGetComponent(out BoomboxController controller))
+                    {
+                        controller.DestroyGUI();
+                        controller.PlaySong(url);
+                    }
+
+                    UnityEngine.Cursor.visible = false;
+                    //Cursor.lockState = CursorLockMode.Locked;
+
+                    Destroy(this);
                 }
-
-                UnityEngine.Cursor.visible = false;
-                //Cursor.lockState = CursorLockMode.Locked;
-
-                Destroy(this);
             }
 
-            if (GUI.Button(new Rect(menuX + 25, menuY + 50 + 50 + 50, menuWidth - 50, 50), "Close"))
+            if (GUI.Button(new Rect(menuX + 25, menuY + 55 + 50 + 50 + 5, menuWidth - 50, 50), "Close"))
             {
 
                 UnityEngine.Cursor.visible = false;
