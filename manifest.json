@@ -1,6 +1,6 @@
 {
   "name": "BetterCustomizbleBoombox",
-  "version_number": "1.0.0",
+  "version_number": "1.0.1",
   "website_url": "https://github.com/PaT0191/BetterCustomizableBoombox",
   "description": "Allows you to upload a youtube video or playlist link. Bind and press your button while holding a boombox to open up the control panel",
   "dependencies": [
