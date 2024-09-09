@@ -1,0 +1,102 @@
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\BetterCustomizableBoombox.deps.json
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\BetterCustomizableBoombox.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\BetterCustomizableBoombox.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Assembly-CSharp.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\LethalCompanyInputUtils.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Newtonsoft.Json.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.InputSystem.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Netcode.Runtime.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.TextMeshPro.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\UnityEngine.UI.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Runtime.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Animation.Rigging.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Facepunch.Steamworks.Win64.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Assembly-CSharp-firstpass.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.Core.Runtime.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Netcode.Components.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.AI.Navigation.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Collections.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\LethalConfig.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\BMX.LobbyCompatibility.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Networking.Transport.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Burst.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Mathematics.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.VisualEffectGraph.Runtime.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Timeline.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Assembly-CSharp.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.InputSystem.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Netcode.Runtime.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.TextMeshPro.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\UnityEngine.UI.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Runtime.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Animation.Rigging.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.Core.Runtime.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Netcode.Components.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.AI.Navigation.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Collections.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Networking.Transport.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Burst.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Mathematics.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.VisualEffectGraph.Runtime.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Config.Runtime.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\bin\Debug\netstandard2.1\Unity.Timeline.pdb
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.AssemblyReference.cache
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\PluginInfo.cs
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.AssemblyInfoInputs.cache
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.AssemblyInfo.cs
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.CoreCompileInputs.cache
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.CopyComplete
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.dll
+D:\Patrik\Aplikacie\unity\Projekty\LethalCompanyUnityTemplate\Assets\Scripts\BetterCustomizableBoombox\obj\Debug\netstandard2.1\BetterCustomizableBoombox.pdb
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\BetterCustomizableBoombox.deps.json
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\BetterCustomizableBoombox.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\BetterCustomizableBoombox.pdb
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Assembly-CSharp.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\LethalCompanyInputUtils.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Newtonsoft.Json.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.InputSystem.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Netcode.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.TextMeshPro.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\UnityEngine.UI.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Animation.Rigging.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Facepunch.Steamworks.Win64.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.RenderPipelines.Core.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\DissonanceVoip.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Assembly-CSharp-firstpass.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Facepunch Transport for Netcode for GameObjects.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Netcode.Components.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.AI.Navigation.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Collections.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\ClientNetworkTransform.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.NetStats.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.MetricTypes.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.NetworkSolutionInterface.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Networking.Transport.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Burst.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.NetStatsReporting.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Mathematics.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.VisualEffectGraph.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\UnityEngine.NVIDIAModule.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Collections.LowLevel.ILSupport.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.Common.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Services.Relay.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Burst.Unsafe.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Multiplayer.Tools.NetworkProfiler.Runtime.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Timeline.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Services.Core.Internal.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Services.Core.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\Unity.Profiling.Core.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\bin\Debug\netstandard2.1\LethalCompanyInputUtils.pdb
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.AssemblyReference.cache
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\PluginInfo.cs
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.GeneratedMSBuildEditorConfig.editorconfig
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.AssemblyInfoInputs.cache
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.AssemblyInfo.cs
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.CoreCompileInputs.cache
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.csproj.CopyComplete
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.dll
+E:\LethalCompany Mods\Mods\BetterCustomizableBoomboxV2\obj\Debug\netstandard2.1\BetterCustomizableBoombox.pdb

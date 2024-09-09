@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterCustomizableBoombox", "BetterCustomizableBoombox\BetterCustomizableBoombox.csproj", "{7C0750D7-3793-4A65-94C2-2CB4F54CCAC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterCustomizableBoombox", "BetterCustomizableBoombox\BetterCustomizableBoombox.csproj", "{12CA980E-E7AC-433A-AE26-405163E70023}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C0750D7-3793-4A65-94C2-2CB4F54CCAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C0750D7-3793-4A65-94C2-2CB4F54CCAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C0750D7-3793-4A65-94C2-2CB4F54CCAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C0750D7-3793-4A65-94C2-2CB4F54CCAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CA980E-E7AC-433A-AE26-405163E70023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CA980E-E7AC-433A-AE26-405163E70023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CA980E-E7AC-433A-AE26-405163E70023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CA980E-E7AC-433A-AE26-405163E70023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3C7CAB94-7AE9-4D18-A30B-38F9B1F904C0}
+		SolutionGuid = {9673ADDC-29C6-41AA-AAD4-B1708E84A49B}
 	EndGlobalSection
 EndGlobal
